@@ -64,3 +64,41 @@ console.log(names);
 const findFx = (n) => n === "사나현";
 const foundName = names.find(findFx);
 console.log(foundName); //자바에서 filter와 유사한 기능
+
+const students = [
+  { name: "오나현", age: 23 },
+  { name: "육나현", age: 24 },
+  { name: "칠나현", age: 23 },
+  { name: "팔나현", age: 26 },
+  { name: "구나현", age: 23 },
+];
+
+console.log(students.find((s) => s.name === "육나현"));
+
+//값 존재 여부: includes() - 배열에 특정 값이 포함되어 있는지 boolean으로 반환
+console.log(names.includes("오나현"));
+//names에 해당 값이 포함되어 있으면 true, 포함되어 있지 않으면 false
+
+//필터링: filter() - 주어진 조건 함수를 통과하는 모든 요소로 새로운 배열을 생성
+//원본 배열은 영향을 주지 않음
+const numbers = [1, 2, 3, 4, 5];
+console.log(numbers.filter((n) => n % 2 === 0));
+const even = numbers.filter((n) => n % 2 === 0);
+console.log(students.filter((student) => student.age === 23));
+
+//students.stream().filter(student -> student.getAge == 27).collection(Collector.toList());
+
+//map() - 배열의 모든 요소에 대해 주어진 함수를 호출(적용)한 결과를 모아 새로운 배열로 반환
+console.log(numbers.map((n) => n * 10));
+console.log(
+  students.map((student) => {
+    if (student.age === 23) {
+        //나이가 23인 학생은 이름만 있는 새로운 객체를 반환
+      return {
+        name: student.name,
+      };
+    }
+    return student;
+  })
+);
+

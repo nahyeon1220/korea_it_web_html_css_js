@@ -128,3 +128,38 @@ const products = [
 //3. products배열에서 category가 전자제품인 제품만 선택해서 각 제품의 이름과 가격을
 //   10% 할인한 discountProducts 배열 생성
 
+//1.
+const expensiveProducts = products.filter((product) => product.price >= 50000);
+console.log(expensiveProducts);
+//2.
+const productNamesAndPrices = products.map((product) => ({
+  name: product.name,
+  price: product.price,
+}));
+console.log(productNamesAndPrices);
+//3.
+const discountProducts = products
+  .filter((product) => product.category === "전자제품")
+  .map((product) => ({
+    name: product.name,
+    price: product.price * 0.9,
+  }));
+console.log(discountProducts)
+
+//=================================================
+const baseConfig = {
+  theme: "dark",
+  fontSize: "16px",
+  language: "ko",
+};
+
+// newConfig를 만드세요.
+// theme는 "light"로 변경하고,
+// padding: "20px" 속성을 새로 추가하세요.
+
+// 객체 Spread 문법을 사용하여 newConfig 생성
+//==================================================
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5];
+
+// 배열 Spread 문법을 사용하여 배열 합치기
